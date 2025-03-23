@@ -23,7 +23,7 @@
 
         body {
             /*A4 dimensions in pixels*/
-            width: 595px;
+            width: 695px;
             height: 842px;
             margin: 0 auto;
             background: url('https://media-hosting.imagekit.io//a82b225067224d06/background_img04.png?Expires=1835469942&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=tHAyiT1LigHrXQ0NMg0f3DYGNRx1coPVbMuu6-43C2rEKeOkfRX0rLhcX9q-DgwmGH7Kclt7IT2OzqRyxQJF33TVLK7kijmGWv5WlS0hEtVAWrAVOrVgzJ~DxNb2Y0rDjIp1CYvshMu0HJgV1Q76XZd6JpAo4d7bRkxvlEYMRM8xKUD2bPMkIU6l9zejz18QcMooGw8gGGhblG4PuAj32rYrTPYsgPbAnzvHuBcbD7LaneEdBuchh51A2IdjlOo5gi9mwB~hUqnVONbZ8O5~pXNEfBsKMHNlLoqTqKb3hO9r03EjcYoJN4g2keajLd9KnbD8yxY4kcyyTxAcRntpdQ__') no-repeat;
@@ -52,6 +52,7 @@
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed;
+            page-break-after: auto;
         }
 
         .cv-table td {
@@ -230,6 +231,11 @@
             top: 60px;
         }
 
+        /* Ensure left column has at least 60 lines of content */
+        .left-column {
+            min-height: calc(14px * 60); /* 14px line-height * 60 lines */
+        }
+
         /* Force Experience, Education, References, and Additional Info to start on a new column or page if the left column is mostly full. */
         .section:nth-child(3) {
             page-break-before: auto;
@@ -343,6 +349,17 @@
                         <p>Sem educação adicionada.</p>
                         @endif
                     </div>
+                    <!-- Additional Content to Ensure Minimum Height -->
+                    <div class="section">
+                        <div class="section__title">Experiência Profissional</div>
+                        <p>Descrição detalhada da experiência profissional para garantir que o conteúdo da coluna esquerda tenha pelo menos 60 linhas.</p>
+                        <p>Adicione mais parágrafos conforme necessário para atingir o comprimento mínimo desejado.</p>
+                        <p>Este é um exemplo de texto adicional para preencher o espaço e garantir que a coluna esquerda tenha conteúdo suficiente antes de passar para a coluna direita.</p>
+                        <p>Continue adicionando conteúdo até que a coluna esquerda tenha pelo menos 60 linhas de texto.</p>
+                        <p>Você pode adicionar mais informações sobre projetos, habilidades, ou qualquer outro detalhe relevante para o currículo.</p>
+                        <p>Certifique-se de que o texto seja relevante e bem estruturado para manter a qualidade do currículo.</p>
+                        <!-- Add more paragraphs as needed -->
+                    </div>
                 </td>
                 <!-- Right Column: Experience, References, Additional Information -->
                 <td class="right-column">
@@ -365,11 +382,11 @@
                         @if (!empty($languages) && is_array($languages))
                         <table class="language-table">
                             <thead>
-                                <tr>
-                                    <th>Idioma</th>
-                                    <th>Conversação</th>
-                                    <th>Leitura</th>
-                                    <th>Escrita</th>
+                                <tr style="border: 1px solid #ddd;">
+                                    <th style="border: 1px solid #ddd;">Idioma</th>
+                                    <th style="border: 1px solid #ddd;">Conversação</th>
+                                    <th style="border: 1px solid #ddd;">Leitura</th>
+                                    <th style="border: 1px solid #ddd;">Escrita</th>
                                 </tr>
                             </thead>
                             <tbody>
