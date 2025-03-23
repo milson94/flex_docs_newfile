@@ -24,11 +24,11 @@
         body {
             /*A4 dimensions in pixels*/
             width: 695px;
-            height: 842px;
+            height: 1042px;
             margin: 0 auto;
             background: url('https://media-hosting.imagekit.io//a82b225067224d06/background_img04.png?Expires=1835469942&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=tHAyiT1LigHrXQ0NMg0f3DYGNRx1coPVbMuu6-43C2rEKeOkfRX0rLhcX9q-DgwmGH7Kclt7IT2OzqRyxQJF33TVLK7kijmGWv5WlS0hEtVAWrAVOrVgzJ~DxNb2Y0rDjIp1CYvshMu0HJgV1Q76XZd6JpAo4d7bRkxvlEYMRM8xKUD2bPMkIU6l9zejz18QcMooGw8gGGhblG4PuAj32rYrTPYsgPbAnzvHuBcbD7LaneEdBuchh51A2IdjlOo5gi9mwB~hUqnVONbZ8O5~pXNEfBsKMHNlLoqTqKb3hO9r03EjcYoJN4g2keajLd9KnbD8yxY4kcyyTxAcRntpdQ__') no-repeat;
             background-size: 100% 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: 'human', sans-serif;
             font-weight: 400;
             color: #333;
             font-size: 12px;
@@ -41,7 +41,7 @@
             width: 100%;
             height: 100%;
             position: relative;
-            top: 20px;
+            top: 10px;
             left: 0;
             z-index: 1;
             display: block;
@@ -57,29 +57,32 @@
 
         .cv-table td {
             vertical-align: top;
-            padding: 15px;
+            padding: 5px;
             word-break: break-word;
         }
 
         /* Header Row */
         .header-row {
             text-align: center;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
+            color : red; 
         }
 
         /* Header Content Styles */
         .header-content h1 {
-            font-size: 22px;
+            font-size: 17px;
             font-weight: 700;
             text-transform: uppercase;
             color: #1e90ff;
-            margin-bottom: 4px;
+            margin-bottom: 14px;
+            text-align: left;
         }
 
         .header-content p {
             font-size: 14px;
             color: #333;
             margin-bottom: 8px;
+            text-align: left;
         }
 
         /* Section Styles */
@@ -87,6 +90,7 @@
             margin-bottom: 15px;
             page-break-inside: avoid;
             background-color: transparent;
+            text-align: left;
             padding: 0;
         }
 
@@ -97,7 +101,7 @@
             font-size: 14px;
             color: #555;
             max-width: 98%;
-            text-align: justify;
+            text-align: left;
             word-break: break-word;
         }
 
@@ -301,17 +305,17 @@
 
 <body>
 
-    <div class="cv-container">
+    <div class="cv-container" style="top: 40px;">
         <table class="cv-table">
             <tr class="header-row">
                 <td colspan="2">
-                    <p class="title">CURRÍCULO VITAE</p>
-                    <div class="header">
-                        <h1>
-                            <span class="first-name">{{ $first_name ?? 'N/A' }}</span>
-                            <span class="last-name">{{ $last_name ?? 'N/A' }}</span>
+                    <p class="title" style="text-align: center; color: darkblue; position: absolute; font-size: 28.8px; top: 11px;">CURRÍCULO VITAE</p>
+                    <div class="header" style="text-align: left;">
+                        <h1 style="margin-bottom: 5px; margin-top:30px;">
+                            <span class="first-name" style="position: relative; top: 5px;">{{ $first_name ?? 'N/A' }}</span>
+                            <span class="last-name" style="position: relative; top: 5px;">{{ $last_name ?? 'N/A' }}</span>
                         </h1>
-                        <p class="role">{{ $role ?? 'N/A' }}</p>
+                        <p class="role" style="position: relative; top: 5px;">{{ $role ?? 'N/A' }}</p>
                     </div>
                 </td>
             </tr>
@@ -360,9 +364,7 @@
                         <p>Certifique-se de que o texto seja relevante e bem estruturado para manter a qualidade do currículo.</p>
                         <!-- Add more paragraphs as needed -->
                     </div>
-                </td>
-                <!-- Right Column: Experience, References, Additional Information -->
-                <td class="right-column">
+
                     <!-- Habilidades -->
                     <div class="section">
                         <div class="section__title">Habilidades</div>
@@ -376,6 +378,10 @@
                             @endif
                         </ul>
                     </div>
+                </td>
+                <!-- Right Column: Experience, References, Additional Information -->
+                <td class="right-column">
+                    
                     <!-- Idiomas -->
                     <div class="section">
                         <div class="section__title">Idiomas</div>

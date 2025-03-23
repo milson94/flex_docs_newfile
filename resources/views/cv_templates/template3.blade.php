@@ -23,8 +23,9 @@
         .cv-container {
             width: 100%;
             max-width: 800px; /* Adjusted to match the image width */
-            margin: 0 auto;
-            padding: 20px; /* Minimal padding for clean look */
+            margin: 0 auto 20px auto; /* Added 20px margin to the bottom */
+            padding: 20px;
+            padding-top: 40px; /* Minimal padding for clean look */
             display: flex;
             justify-content: space-between;
         }
@@ -51,7 +52,7 @@
             color: #555;
         }
         .section {
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
         .section__title {
             font-size: 14px;
