@@ -360,6 +360,7 @@
                         <div class="section__title">Resumo</div>
                         <p>{{ $summary ?? 'N/A' }}</p>
                     </div>
+
                     <!-- Education -->
                     <div class="section education-section">
                         <div class="section__title">Educação</div>
@@ -373,17 +374,6 @@
                         @else
                         <p>Sem educação adicionada.</p>
                         @endif
-                    </div>
-                    <!-- Additional Content to Ensure Minimum Height -->
-                    <div class="section">
-                        <div class="section__title">Experiência Profissional</div>
-                        <p>Descrição detalhada da experiência profissional para garantir que o conteúdo da coluna esquerda tenha pelo menos 60 linhas.</p>
-                        <p>Adicione mais parágrafos conforme necessário para atingir o comprimento mínimo desejado.</p>
-                        <p>Este é um exemplo de texto adicional para preencher o espaço e garantir que a coluna esquerda tenha conteúdo suficiente antes de passar para a coluna direita.</p>
-                        <p>Continue adicionando conteúdo até que a coluna esquerda tenha pelo menos 60 linhas de texto.</p>
-                        <p>Você pode adicionar mais informações sobre projetos, habilidades, ou qualquer outro detalhe relevante para o currículo.</p>
-                        <p>Certifique-se de que o texto seja relevante e bem estruturado para manter a qualidade do currículo.</p>
-                        <!-- Add more paragraphs as needed -->
                     </div>
 
                     <!-- Skills -->
@@ -399,9 +389,6 @@
                             @endif
                         </ul>
                     </div>
-                </td>
-                <!-- Right Column: Experience, References, Additional Information -->
-                <td class="right-column" style="padding-left: 10px; padding-right: 40px;">
 
                     <!-- Languages -->
                     <div class="section">
@@ -431,6 +418,22 @@
                         <p>Sem idiomas adicionados.</p>
                         @endif
                     </div>
+
+                    <!-- Additional Content to Ensure Minimum Height -->
+                    <div class="section">
+                        <div class="section__title">Experiência Profissional</div>
+                        <p>Descrição detalhada da experiência profissional para garantir que o conteúdo da coluna esquerda tenha pelo menos 60 linhas.</p>
+                        <p>Adicione mais parágrafos conforme necessário para atingir o comprimento mínimo desejado.</p>
+                        <p>Este é um exemplo de texto adicional para preencher o espaço e garantir que a coluna esquerda tenha conteúdo suficiente antes de passar para a coluna direita.</p>
+                        <p>Continue adicionando conteúdo até que a coluna esquerda tenha pelo menos 60 linhas de texto.</p>
+                        <p>Você pode adicionar mais informações sobre projetos, habilidades, ou qualquer outro detalhe relevante para o currículo.</p>
+                        <p>Certifique-se de que o texto seja relevante e bem estruturado para manter a qualidade do currículo.</p>
+                        <!-- Add more paragraphs as needed -->
+                    </div>
+                </td>
+
+                <!-- Right Column: Experience, References, Additional Information -->
+                <td class="right-column" style="padding-left: 10px; padding-right: 40px;">
                     <!-- Experience -->
                     <div class="section">
                         <div class="section__title">Experiência</div>
@@ -459,6 +462,7 @@
                         <p>Sem experiência adicionada.</p>
                         @endif
                     </div>
+
                     <!-- References -->
                     <div class="grid-item section">
                         <div class="section__title">Referências</div>
@@ -474,6 +478,7 @@
                         <p>Sem referências adicionadas.</p>
                         @endif
                     </div>
+
                     <div class="section">
                         <div class="section__title">Informações Adicionais</div>
                         <div class="grid-item">
@@ -490,6 +495,7 @@
                     </div>
                 </td>
             </tr>
+
         </table>
         <div class="footer">
             <!-- Footer content can go here -->
