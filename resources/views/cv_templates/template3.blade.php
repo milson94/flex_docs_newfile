@@ -323,39 +323,40 @@
 </head>
 
 <body>
-<div class="cv-container " style="top: 0;">
-    <table class="cv-table">
-        <tr class="header-row" style="background-color: #14324C; color: white; ">
-            <td colspan="2" ">
-                <div class="header-content">
-                    <div class="header-text" style="text-align: left;">
-                        <h1 style="margin-bottom: 5px;">
-                            <span class="first-name" style="position: relative; top: 5px;">{{ $first_name ?? 'N/A' }}</span>
-                            <span class="last-name" style="position: relative; top: 5px;">{{ $last_name ?? 'N/A' }}</span>
-                        </h1>
-                        <p class="role" style="position: relative; top: 5px;">{{ $role ?? 'N/A' }}</p>
+
+    <div class="cv-container " style="top: 0;">
+        <table class="cv-table">
+            <tr class="header-row" style="background-color: #14324C; margin-top:80px;">
+                <td colspan="2">
+                    <div class="header-content">
+                        <div class="header-text" style="text-align: left;">
+                            <h1 style="margin-bottom: 5px; margin-top:30px;">
+                                <span class="first-name" style="position: relative; top: 5px;">{{ $first_name ?? 'N/A' }}</span>
+                                <span class="last-name" style="position: relative; top: 5px;">{{ $last_name ?? 'N/A' }}</span>
+                            </h1>
+                            <p class="role" style="position: relative; top: 5px;">{{ $role ?? 'N/A' }}</p>
+                            <p class="title" style="text-align: left; color: white; font-size: 28.8px;">CURRÍCULO VITAE</p>
+                        </div>
+                        <div class="image-placeholder" style="margin-left: auto;">IMG</div>
                     </div>
-                    <div class="image-placeholder" style="margin-left: auto;">IMG</div>
-                </div>
-                <div class="header-content" >
-                    <div class="contact-info" style="width: 50%; float: left;">
-                        <p><span class="contact-label">Nacionalidade:</span> {{ $nationality ?? 'N/A' }}</p>
-                        <p><span class="contact-label">Data de Nascimento:</span> {{ $date_of_birth ?? 'N/A' }}</p>
-                        <p><span class="contact-label">Local de Nascimento:</span> {{ $place_of_birth ?? 'N/A' }}</p>
-                        <p><span class="contact-label">Gênero:</span> {{ $gender == 'male' ? 'Masculino' : ($gender == 'female' ? 'Feminino' : ($gender ?? 'Outro')) }}</p>
-                    </div>
-                    <div class="contact-info" style="width: 50%; float: left; color: white;">
-                        <p><span class="contact-label">Email:</span> {{ $email ?? 'N/A' }}</p>
-                        <p><span class="contact-label">LinkedIn:</span> {{ $linkedin ?? 'N/A' }}</p>
-                        <p><span class="contact-label">Celular:</span> {{ $phone_number ?? 'N/A' }}</p>
-                        <p><span class="contact-label">Endereço:</span> {{ $location ?? 'N/A' }}</p>
-                    </div>
-                </div>
-            </td>
-        </tr>
+                </td>
+            </tr>
             <tr style="height: 20px;">
-                <!-- Left Column: Summary, Education, Skills, Languages -->
+                <!-- Left Column: Personal Data, Summary, Education, Skills, Languages -->
                 <td class="left-column" style="padding-left: 50px; padding-right: 10px;">
+                    <div class="section">
+                        <div class="section__title">Detalhes Pessoais</div>
+                        <div class="contact-info">
+                            <p><span class="contact-label">Nacionalidade:</span> {{ $nationality ?? 'N/A' }}</p>
+                            <p><span class="contact-label">Data de Nascimento:</span> {{ $date_of_birth ?? 'N/A' }}</p>
+                            <p><span class="contact-label">Local de Nascimento:</span> {{ $place_of_birth ?? 'N/A' }}</p>
+                            <p><span class="contact-label">Gênero:</span> {{ $gender == 'male' ? 'Masculino' : ($gender == 'female' ? 'Feminino' : ($gender ?? 'Outro')) }}</p>
+                            <p><span class="contact-label">Email:</span> {{ $email ?? 'N/A' }}</p>
+                            <p><span class="contact-label">LinkedIn:</span> {{ $linkedin ?? 'N/A' }}</p>
+                            <p><span class="contact-label">Celular:</span> {{ $phone_number ?? 'N/A' }}</p>
+                            <p><span class="contact-label">Endereço:</span> {{ $location ?? 'N/A' }}</p>
+                        </div>
+                    </div>
                     <div class="section summary">
                         <div class="section__title">Resumo</div>
                         <p>{{ $summary ?? 'N/A' }}</p>
