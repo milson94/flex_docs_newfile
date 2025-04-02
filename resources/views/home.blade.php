@@ -9,7 +9,7 @@
 
     <!-- Main Content -->
     <div class="flex-1 p-8 overflow-y-auto">
-        <h1 class="text-3xl font-bold text-gray-800 mb-8">Pré-visualização do CV</h1>
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">Preencha os Detalhes do Seu CV</h1>
 
         <!-- Success Message -->
         @if (session('success'))
@@ -29,9 +29,12 @@
             </div>
         @endif
 
-        <!-- CV Preview Form -->
+        <!-- CV Form -->
         <form method="POST" action="{{ route('cv.preview') }}" class="bg-white p-8 rounded-lg shadow-lg">
             @csrf
+
+            <!-- Hidden Input for Template -->
+            <input type="hidden" name="template" value="{{ request()->query('template') }}">
 
             <!-- Personal Details -->
             <div class="mb-8">
@@ -182,7 +185,7 @@
             <div class="mb-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Experiência</h2>
                 <div id="experience-fields" class="space-y-6">
-                    <!-- Initial Experience Field Template (can be hidden if needed) -->
+                    <!-- Initial Experience Field Template -->
                     <div class="bg-gray-50 p-6 rounded-lg experience-field">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -290,7 +293,7 @@
                                 </button>
                             </div>
                         </div>
-                         <div class="mt-4 flex justify-end">
+                        <div class="mt-4 flex justify-end">
                             <button
                                 type="button"
                                 class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 remove-experience text-sm"
@@ -299,7 +302,6 @@
                             </button>
                         </div>
                     </div>
-                     <!-- Cloned experience fields will be appended here -->
                 </div>
                 <!-- Add Experience Button -->
                 <div class="mt-4">
@@ -362,9 +364,8 @@
                             </button>
                         </div>
                     </div>
-                    <!-- Cloned education fields will be appended here -->
                 </div>
-                 <!-- Add Education Button -->
+                <!-- Add Education Button -->
                 <div class="mt-4">
                     <button
                         type="button"
@@ -439,9 +440,8 @@
                             </button>
                         </div>
                     </div>
-                     <!-- Cloned language fields will be appended here -->
                 </div>
-                 <!-- Add Language Button -->
+                <!-- Add Language Button -->
                 <div class="mt-4">
                     <button
                         type="button"
@@ -454,7 +454,7 @@
             </div>
 
             <!-- Additional Information -->
-             <div class="mb-8">
+            <div class="mb-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Informações Adicionais</h2>
                 <div id="additional-info-fields" class="space-y-2">
                     <!-- Initial Additional Info Field -->
@@ -482,7 +482,6 @@
                             </div>
                         @endforeach
                     @endif
-                    <!-- Cloned additional info fields will be appended here -->
                 </div>
                 <div class="mt-2 flex justify-start">
                     <button
@@ -494,7 +493,6 @@
                     </button>
                 </div>
             </div>
-
 
             <!-- References -->
             <div class="mb-8">
@@ -543,7 +541,6 @@
                             </button>
                         </div>
                     </div>
-                     <!-- Cloned reference fields will be appended here -->
                 </div>
                  <!-- Add Reference Button -->
                 <div class="mt-4">
@@ -578,7 +575,7 @@
                     type="submit"
                     class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
-                    Escolher Modelo de CV
+                    Baixar CV 
                 </button>
             </div>
         </form>
@@ -664,7 +661,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return fields.length;
     }
 
-
     // --- Add Experience ---
     const addExperienceButton = document.getElementById('add-experience');
     if (addExperienceButton) {
@@ -723,7 +719,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error("Add Experience button not found!");
     }
 
-
     // --- Add Education ---
      const addEducationButton = document.getElementById('add-education');
      if(addEducationButton) {
@@ -746,7 +741,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             educationFields.appendChild(newField);
             educationIndex++; // Increment index once
-
 
             // ---> WORKAROUND STEP 2: Immediately remove the *last* added education field <---
             // !! CAVEAT: This is a HACK to mask the real issue !!
@@ -839,7 +833,6 @@ document.addEventListener('DOMContentLoaded', function () {
             additionalInfoFields.appendChild(newField);
         });
      }
-
 
     // --- Event Delegation for Removing Fields and Adding/Removing Duties (Original Logic) ---
     document.body.addEventListener('click', function(event) {
@@ -984,11 +977,10 @@ document.addEventListener('DOMContentLoaded', function () {
          const experienceField = checkbox.closest('.experience-field');
           if (!experienceField) return;
          const endDateInput = experienceField.querySelector('.end-date-input');
-         if (endDateInput) {
+         if (endDateInput) {a
              endDateInput.disabled = checkbox.checked;
          }
     });
-
 
     console.log("CV Form Script Initialized Successfully.");
 

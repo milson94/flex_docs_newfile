@@ -7,7 +7,7 @@
             <h1 class="hero-text text-4xl font-bold mb-4">Construtor de CVs que ajuda você a ser contratado nas melhores empresas</h1>
             <p class="mb-8">Escolha um modelo de CV e crie o seu CV em minutos.</p>
             <div class="space-x-4">
-                <a href="{{ route('home') }}" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100">Criar CV</a>
+                <a href="{{ route('cv.templates') }}" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100">Escolher CV</a>
                 <a href="{{ route('register') }}" class="bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600">Registrar</a>
             </div>
         </div>
@@ -15,12 +15,14 @@
 
     <!-- Slider Section -->
     <section class="container mx-auto px-6 py-12">
-        <h2 class="text-3xl font-bold text-center mb-8">Escolha um Modelo de CV</h2>
+        <div class="text-center mb-8">
+            <a href="{{ route('cv.templates') }}" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 inline-block">Escolha um Modelo de CV</a>
+        </div>
         <div class="slider">
             <!-- Slider Items -->
             @for ($i = 1; $i <= 20; $i++)
                 <div class="slider-item {{ $i > 6 ? 'hidden' : '' }}">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('cv.templates') }}">
                         <img src="{{ asset("images/templates/template{$i}.png") }}" alt="Template {{ $i }}">
                     </a>
                 </div>
