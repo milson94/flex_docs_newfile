@@ -4,6 +4,12 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\GoogleController;
+
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User; // Your User model
+
+use App\Http\Controllers\Auth\LoginController;
+
 use App\Http\Controllers\CVController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController; // Assuming this controller shows the CV form
@@ -27,6 +33,38 @@ Route::get('/', function () {
 })->name('welcome');
 
 // --- Core CV Generation Flow ---
+
+Route::get('/login/google', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.login');
+
+
+Route::get('/login/google/callback', function () {
+    try {
+        $googleUser = Socialite::driver('google')->user();
+
+        // Find or create user
+        $user = User::updateOrCreate([
+            'google_id' => $googleUser->id, // Use a dedicated column like 'google_id'
+        ], [
+            'name' => $googleUser->name,
+            'email' => $googleUser->email,
+            'google_token' => $googleUser->token, // Optional: Store token
+            'google_refresh_token' => $googleUser->refreshToken, // Optional: Store refresh token
+            'password' => isset($user->password) ? $user->password : Hash::make(Str::random(24)) // Handle password if user didn't exist
+        ]);
+
+        Auth::login($user, true); // Log in the user (true remembers them)
+
+        return redirect('/dashboard'); // Or wherever you want logged-in users to go
+
+    } catch (\Exception $e) {
+        // Log the error: Log::error($e->getMessage());
+        return redirect('/login')->withErrors(['google_login' => 'Unable to login using Google. Please try again. Error: ' . $e->getMessage()]);
+    }
+})->name('google.callback');
+
+
 
 Route::post('/cv/generate-with-data/{templateName}', [CVController::class, 'generateWithData'])
     ->middleware('auth') // Ensure user is logged in

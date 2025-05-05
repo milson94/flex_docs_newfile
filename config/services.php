@@ -21,9 +21,9 @@ return [
 
 
     'google' => [
-    'client_id' => env('your-client-id'),
-    'client_secret' => env('your-client-secret'),
-    'redirect' => env('your_url'),
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => env('GOOGLE_REDIRECT_URI')
     ],
 
     'ses' => [
